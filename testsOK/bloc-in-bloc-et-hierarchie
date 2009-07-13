@@ -1,0 +1,24 @@
+class Base is 
+Entier b
+
+class Valeur extends Base is
+Valeur h; Base l
+methods get() returns Base is { if(b=1) then l else h }
+
+class Valeur2 extends Valeur is
+Valeur2 val2
+methods compute(Entier l) returns Base is {if(b=0) then val2.get() else 
+								{Base b begin if(l>0) then b else super.get() end}
+								
+								};
+		get2(Valeur k) returns Entier is {Chaine b begin k.l:=compute(k.b);b:="ok"; b.imprimer(); self.b end}
+
+{
+	Valeur2 v;
+	Entier i
+	begin 
+	i := 1;
+	v.get()
+	end
+}
+

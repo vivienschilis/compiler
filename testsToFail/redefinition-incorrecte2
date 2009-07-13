@@ -1,0 +1,7 @@
+Class A is
+methods get(Entier c) returns Entier is c
+
+Class E extends A is
+methods get(Entier c, Entier g) returns Entier is 0
+
+{A a; Entier h begin a.get(h) end }

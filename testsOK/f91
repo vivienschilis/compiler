@@ -1,0 +1,20 @@
+class A is
+   methods 
+      indente(Entier niveau) returns Entier is {
+	if niveau > 0 then { " ".imprimer(); self.indente(niveau -1) }
+	else 0
+      };
+      f91(Entier v, Entier niveau) returns Entier is {
+	  Entier res 
+	  begin
+	    res := if v > 100 then v - 10
+                   else new A.f91(new A.f91(v+11, niveau+2), niveau+1) ;
+	    self.indente(niveau);
+	    "f91(".imprimer(); v.imprimer(); ")= ".imprimer(); res.imprimer();
+	    "\n".imprimer();
+	    res
+	 end
+     }
+{ 
+  new A.f91(80, 0)
+}

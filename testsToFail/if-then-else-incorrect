@@ -1,0 +1,3 @@
+class A is 
+methods get(Entier c) returns Entier is if (c>0) then "ok" else 1
+{"ok".imprimer()}

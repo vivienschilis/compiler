@@ -1,0 +1,65 @@
+class A is
+     Entier v
+  methods
+     val() returns Entier is { "A::val()".imprimer(); v };
+     init(Entier val) returns Entier is { v := val; val };
+     imprimer() returns Chaine is
+         { "v=".imprimer(); v.imprimer(); "" }
+
+class B extends A is
+     Entier vb
+  methods
+     init(Entier val) returns Entier is
+         { super.init(2*val); vb := val; val };
+     val() returns Entier is { "B::val()".imprimer(); vb + v  };
+     imprimer() returns Chaine is
+	{ super.imprimer(); ", vb=".imprimer(); vb.imprimer(); "" }
+
+class C extends A is
+     Entier vc
+  methods
+     init(Entier val) returns Entier is
+         { super.init(10*val); vc := val; val };
+     imprimer() returns Chaine is
+	{ super.imprimer(); ", vc=".imprimer(); vc.imprimer(); "" };
+     val() returns Entier is { "C::val()".imprimer(); vc + v };
+     essai2(A arg) returns C is { vc := arg.val(); self };
+     essai3() returns C is { self };
+     essai4() returns A is { self }
+
+class B2 extends B is
+     Entier vb2
+  methods
+     init(Entier val) returns Entier is
+         { super.init(100*val); vb2 := val; val };
+     imprimer() returns Chaine is
+	{ super.imprimer(); ", vb2=".imprimer(); vb2.imprimer(); "" };
+     essai3() returns Entier is { v+vb+vb2 }
+
+class D is
+  methods
+     B(B b, C c, Entier e) returns  A is
+	    { if e <> 0 then b else c }
+
+{ A mona; B monb; C monc; D mond; B2 monb2
+  begin
+    mona := NEW A; monb := NEW B; monc := NEW C; mond := NEW D;
+    monb2 := NEW B2;
+
+    mona.init(1); monb.init(1); monc.init(1); monb2.init(1);
+    mona.imprimer(); "\n".imprimer();
+    monb.imprimer(); "\n".imprimer();
+    monc.imprimer(); "\n".imprimer();
+    monb2.imprimer(); "\n".imprimer();
+    monc.essai2(mona).imprimer(); "\n".imprimer();
+    monc.essai2(monb).imprimer(); "\n".imprimer();
+    monc.essai2(monc).imprimer(); "\n".imprimer();
+    monc.essai2(monb2).imprimer(); "\n".imprimer();
+    monc.essai3().imprimer(); "\n".imprimer();
+    monc.essai4().imprimer(); "\n".imprimer();
+    mond.B(monb, monc, 1).imprimer(); "\n".imprimer();
+    mond.B(monb, monc, 0).imprimer(); "\n".imprimer();
+    monb2.essai3().imprimer(); "\n".imprimer();
+    "\nDone\n".imprimer()
+  end
+}

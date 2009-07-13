@@ -1,0 +1,7 @@
+Class A is 
+Entier b
+
+Class A is
+Chaine c
+
+{"ok".imprimer()}

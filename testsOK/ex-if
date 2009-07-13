@@ -1,0 +1,29 @@
+class A is
+  Entier v
+  methods g() returns Entier is { 1 }
+
+class B extends A is
+  Entier vb
+  methods g() returns Entier is { 2 }
+
+class C extends A is
+  Entier vc
+  methods g() returns Entier is { 3 }
+
+class D is
+  Entier vd
+  methods teste(B b, C c, Entier e) returns A is
+	    { if e=0 then b else c }
+{
+  A a; B b; C c; D d
+
+  begin 
+  a := NEW A; b := NEW B; c := NEW C; d := NEW D;
+  a.g().imprimer();
+  b.g().imprimer();
+  c.g().imprimer();
+  d.teste(b, c, 0).g().imprimer()
+
+  end
+}
+

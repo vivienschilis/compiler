@@ -1,0 +1,8 @@
+Class A is
+methods get(Entier c) returns Entier is c
+{
+	A d; A a
+	begin
+	a.get(d)
+	end
+}

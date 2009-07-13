@@ -1,0 +1,8 @@
+class A is 
+Entier b
+{ 
+	A a; Entier c
+	begin
+	a + c
+	end
+}

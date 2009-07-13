@@ -1,0 +1,8 @@
+Class A is 
+methods get(Entier a) returns Entier is {
+	Chaine a; Entier c
+	begin
+	c:=a
+	end
+}
+{"ok".imprimer()}

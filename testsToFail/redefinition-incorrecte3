@@ -1,0 +1,7 @@
+Class A is
+methods get(Entier c) returns Entier is c
+
+Class E extends A is
+methods get(Entier c) returns Chaine is "ok"
+
+{A a; Entier h begin a.get(h) end }

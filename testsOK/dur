@@ -1,0 +1,29 @@
+class A is
+  Entier v
+  methods
+      init(Entier val) returns A is { v := val; self };
+      choisir(Entier i, A arg1, A arg2) returns A is
+	{ if i = 0 then arg1 else arg2 };
+      modifie(Entier i, A arg1, A arg2) returns A is
+	{ A aux 
+	  begin aux := self.choisir(i, arg1, arg2);
+	        aux.v := 100 ;
+	        self
+	  end
+	};
+      imprimer() returns Chaine is { v.imprimer() ; "\n".imprimer() }
+{ A a1; A a2; A bid
+  begin
+     a1 := new A; a2 := NEW A; bid := NEW A;
+     a1.init(12);
+     a2.init(23);
+     a1.imprimer();
+     a2.imprimer();
+     bid.modifie(0, a1, a2);
+     a1.imprimer();
+     a2.imprimer();
+     bid.modifie(1, a1, a2);
+     a1.imprimer();
+     a2.imprimer()
+  end
+}

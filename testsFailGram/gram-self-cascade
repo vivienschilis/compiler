@@ -1,0 +1,5 @@
+Class A is
+Entier b
+methods get() returns Entier is self.self.b
+
+{"ok".imprimer()}

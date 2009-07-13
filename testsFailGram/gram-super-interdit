@@ -1,0 +1,6 @@
+Class A is 
+Entier b
+
+Class B extends A is
+methods get() returns Entier is super.b
+{"ok".imprimer()}

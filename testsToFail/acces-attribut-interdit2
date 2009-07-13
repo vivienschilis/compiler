@@ -1,0 +1,6 @@
+Class A is 
+Entier b
+
+Class B is
+methods get(A a) returns Entier is a.b
+{"ok".imprimer()}

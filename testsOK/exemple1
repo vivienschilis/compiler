@@ -1,0 +1,31 @@
+class Valeur is
+  Entier val
+  methods
+    init(Entier v) returns Valeur is
+          { val := v ; self } ;
+    fact() returns Entier is
+      { Entier res
+        begin 
+	  res := if val = 0 then 2
+                 else val * ((new Valeur).init(val - 1)).fact();
+
+          "Fact(".imprimer(); val.imprimer(); ") = ".imprimer(); 
+          res.imprimer(); "\n".imprimer();
+          res
+	end
+      }
+
+class Point is
+  Entier px; Entier py
+  methods
+    getX() returns Entier is { px };
+    getY() returns Entier is { py };
+    init(Entier x, Entier y) returns Point is { px := x; py := y; self };
+    init1(Point p) returns Point is { px := p.getX(); py := p.getY(); self };
+    affiche(Entier any) returns Point is 
+      { "posx: ".imprimer(); px.imprimer();
+         ", posy: ".imprimer(); py.imprimer();
+	 if any <> 0 then "dd"  else "dd";
+         self
+      }
+{"ok".imprimer()}

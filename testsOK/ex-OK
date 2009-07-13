@@ -1,0 +1,37 @@
+class A is
+  Entier v
+  methods
+    init(Entier val) returns A is { v := val; self } ;
+    f() returns Entier is { 1 };
+    g(A a) returns A is { a };
+    imprimer() returns A is { 
+       "Imprimer de A:".imprimer();
+        v.imprimer(); "\n".imprimer();
+	self
+    }
+class B extends A is
+  Entier v2
+  methods
+    h(B b) returns A is { b };
+    imprimer() returns A is { 
+       "Imprimer de B:".imprimer();
+        v.imprimer(); 
+       ", ".imprimer(); v2.imprimer();
+        "\n".imprimer();
+	self
+    }
+{ A a; B b
+  begin
+  a := NEW A; b := NEW B;
+  a.init(12); b.init(25);
+  (a.f()).imprimer();
+  (a.g(a)).imprimer();
+  (a.g(b)).imprimer();
+  (b.g(a)).imprimer();
+  (b.g(b)).imprimer();
+  (a.g((a.g(a)))).imprimer();
+  (a.g((a.g(b)))).imprimer();
+  "Done\n".imprimer()
+  end
+}
+

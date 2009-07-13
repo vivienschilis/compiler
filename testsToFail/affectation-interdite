@@ -1,0 +1,4 @@
+Class A is 
+Entier a; Chaine b
+methods get() returns Entier is { a:=b; a}
+{"ok".imprimer()}

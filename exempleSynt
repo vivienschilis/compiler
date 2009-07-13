@@ -1,0 +1,33 @@
+class Valeur is
+  Entier val; Chaine val2; Valeur val3
+  methods
+    init(Entier v) returns Valeur is
+          { val := v ; self } ;
+    fact() returns Entier is
+      { Entier res
+        begin 
+	  res := if val = 0 then res
+                 else val * ((new Valeur).init(val - 1)).fact();
+
+          "Fact(".imprimer(); val.imprimer(); ") = ".imprimer(); 
+          res.imprimer(); "\n".imprimer();
+          res
+	end
+      }
+
+class Valeur2 extends Valeur is
+  Entier val
+  methods
+    init2(Entier v, Chaine g) returns Entier is
+          { val := v; super.super.v } ;
+    fact() returns Entier is
+      { Entier res
+        begin 
+	  res := if val = 0 then res
+                 else val * ((new Valeur).init(val - 1)).fact();
+
+          "Fact(".imprimer(); val.imprimer(); ") = ".imprimer(); 
+          res.imprimer(); "\n".imprimer();
+          res
+	end
+      }

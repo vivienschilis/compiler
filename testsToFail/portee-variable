@@ -1,0 +1,6 @@
+Class A is
+Entier m
+
+Class B extends A is
+Chaine m
+methods get() returns Entier is m

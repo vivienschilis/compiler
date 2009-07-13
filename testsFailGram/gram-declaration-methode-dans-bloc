@@ -1,0 +1,10 @@
+Class A is
+Entier b
+methods get() returns Entier is {
+	Entier c
+	methods set() returns Chaine is "coucou"
+	begin
+	set()
+	end
+}
+{"ok".imprimer()}
